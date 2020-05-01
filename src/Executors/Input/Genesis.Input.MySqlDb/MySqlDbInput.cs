@@ -178,7 +178,7 @@ namespace Genesis.Input.MySqlDb
                         var prop = new PropertyGraph
                         {
                             IsKeyProperty = p.ColumnName.Equals(keyInfo?.ColumnName, StringComparison.InvariantCultureIgnoreCase),
-                            Name = p.ColumnName,
+                            Name = p.ColumnName.FromMySqlUnderscored(),
                             IsNullable = p.IsNullable,
                             SourceType = p.DbDataType,
                             TypeGuess = p.DbDataType.ToCodeDataType()

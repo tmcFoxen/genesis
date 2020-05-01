@@ -1,8 +1,8 @@
 ﻿{
-  "Server": "",
-  "Database": "",
-  "UserId": "",
-  "Password": "",
+  "Server": "foxendev.cz6610eevv0x.us-east-2.rds.amazonaws.com",
+  "Database": "foxendev",
+  "UserId": "dbafoxendev",
+  "Password": "Foxen!db",
 
   "ExcludePrefixes": [
     "AspNet", "_", "sys"

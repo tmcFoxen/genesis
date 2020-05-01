@@ -1,14 +1,17 @@
 --Discover all of the executors we have available
 scan
 
-add mssql
---Populate our object graph from SQL server, or Swagger url, or xl sheet, or class library
-config mssql ConnectionString="Server=(localdb)\MSSQLLocalDB;Database=GenesisTest;Integrated Security=true;"
+add mysql
+--Populate our object graph from My SQL server
+config mssql Server="foxendev.cz6610eevv0x.us-east-2.rds.amazonaws.com"
+config mssql Database="foxendev"
+config mssql UserId="dbafoxendev"
+config mssql Password="Foxen!db"
 
 add aspnet-svc
 --Boilerplate Middle-tier CRUD Services for ASP.Net
-config aspnet-svc OutputPath="/src/genesis-mvp/src/Api/Genesis.Services/"
-config aspnet-svc DepsPath="/src/genesis-mvp/src/Api/Genesis.Framework/"
+config aspnet-svc OutputPath="/Users/toddmcmullen/output/Api/Foxen.Services/"
+config aspnet-svc DepsPath="/Users/toddmcmullen/output/Api/Foxen.Framework/"
 config aspnet-svc OutputSuffix="Service"
 config aspnet-svc ObjectBaseClass="Service"
 config aspnet-svc DtoBaseClass="Dto"
@@ -17,99 +20,99 @@ config aspnet-svc GenericBaseClass=true
 config aspnet-svc RepoSuffix="Repository"
 config aspnet-svc CachedRepoSuffix="CachedRepository"
 config aspnet-svc MapperSuffix="Mapper"
-config aspnet-svc Namespace="Genesis.Services"
-config aspnet-svc MapperNamespace="Genesis.Services.Mapping"
-config aspnet-svc DepsNamespace="Genesis.Framework"
-config aspnet-svc ModelNamespace="Genesis.Data.Models"
-config aspnet-svc CachedRepoNamespace="Genesis.Data.CachedRepositories"
-config aspnet-svc RepoNamespace="Genesis.Data.Repositories"
-config aspnet-svc DtoNamespace="Genesis.Common"
+config aspnet-svc Namespace="Foxen.Services"
+config aspnet-svc MapperNamespace="Foxen.Services.Mapping"
+config aspnet-svc DepsNamespace="Foxen.Framework"
+config aspnet-svc ModelNamespace="Foxen.Data.Models"
+config aspnet-svc CachedRepoNamespace="Foxen.Data.CachedRepositories"
+config aspnet-svc RepoNamespace="Foxen.Data.Repositories"
+config aspnet-svc DtoNamespace="Foxen.Common"
 
-add poco
+add poco    
 --Dump out our DTO objects in the common/shared project
-config poco OutputPath="/src/genesis-mvp/src/Shared/Genesis.Common/"
-config poco DepsPath="/src/genesis-mvp/src/Shared/Genesis.Common/"
+config poco OutputPath="/Users/toddmcmullen/output/Shared/Foxen.Common/"
+config poco DepsPath="/Users/toddmcmullen/output/Shared/Foxen.Common/"
 config poco OutputSuffix="Dto"
 config poco ObjectBaseClass="Dto"
 config poco GenericBaseClass=true
-config poco Namespace="Genesis.Common"
+config poco Namespace="Foxen.Common"
 
 add ef-model
 --Basically a dupe of poco but with a different template, v2 will address this redundancy
-config ef-model OutputPath="/src/genesis-mvp/src/Api/Genesis.Data/Models/"
+config ef-model OutputPath="/Users/toddmcmullen/output/Api/Foxen.Data/Models/"
 --OutputSuffix is appended to the filename before the extension
 config ef-model OutputSuffix=""
-config ef-model DepsPath="/src/genesis-mvp/src/Api/Genesis.Framework/"
-config ef-model DepsNamespace="Genesis.Framework"
+config ef-model DepsPath="/Users/toddmcmullen/output/Api/Foxen.Framework/"
+config ef-model DepsNamespace="Foxen.Framework"
 config ef-model ObjectBaseClass="Model"
 config ef-model GenericBaseClass=true
-config ef-model Namespace="Genesis.Data.Models"
+config ef-model Namespace="Foxen.Data.Models"
 
 add aspnet-map
 --Dump an automapper profile class out
-config aspnet-map OutputPath="/src/genesis-mvp/src/Api/Genesis.Services/Mapping/"
+config aspnet-map OutputPath="/Users/toddmcmullen/output/Api/Foxen.Services/Mapping/"
 config aspnet-map DtoBaseClass="Dto"
-config aspnet-map Namespace="Genesis.Services.Mapping"
+config aspnet-map Namespace="Foxen.Services.Mapping"
 config aspnet-map MapperSuffix="Mapper"
-config aspnet-map DepsNamespace="Genesis.Framework"
-config aspnet-map ModelNamespace="Genesis.Data.Models"
-config aspnet-map DtoNamespace="Genesis.Common"
+config aspnet-map DepsNamespace="Foxen.Framework"
+config aspnet-map ModelNamespace="Foxen.Data.Models"
+config aspnet-map DtoNamespace="Foxen.Common"
 
 add aspnet-repo
 --Generate basic CRUD repositories
-config aspnet-repo OutputPath="/src/genesis-mvp/src/Api/Genesis.Data/Repositories/"
+config aspnet-repo OutputPath="/Users/toddmcmullen/output/Api/Foxen.Data/Repositories/"
 config aspnet-repo OutputSuffix="Repository"
-config aspnet-repo DepsPath="/src/genesis-mvp/src/Api/Genesis.Framework/"
-config aspnet-repo DepsNamespace="Genesis.Framework"
-config aspnet-repo DepsModelNamespace="Genesis.Data.Models"
+config aspnet-repo DepsPath="/Users/toddmcmullen/output/Api/Foxen.Framework/"
+config aspnet-repo DepsNamespace="Foxen.Framework"
+config aspnet-repo DepsModelNamespace="Foxen.Data.Models"
 config aspnet-repo ObjectBaseClass="Model"
 config aspnet-repo ModelBaseClass="Model"
 config aspnet-repo GenericBaseClass=true
-config aspnet-repo Namespace="Genesis.Data.Repositories"
+config aspnet-repo Namespace="Foxen.Data.Repositories"
 
 add aspnet-repo-cached
 --Generate basic CRUD cached repositories, using the repositories above
-config aspnet-repo-cached OutputPath="/src/genesis-mvp/src/Api/Genesis.Data/CachedRepositories/"
+config aspnet-repo-cached OutputPath="/Users/toddmcmullen/output/Api/Foxen.Data/CachedRepositories/"
 config aspnet-repo-cached OutputSuffix="CachedRepository"
-config aspnet-repo-cached DepsPath="/src/genesis-mvp/src/Api/Genesis.Framework/"
-config aspnet-repo-cached DepsNamespace="Genesis.Framework"
-config aspnet-repo-cached DepsModelNamespace="Genesis.Data.Models"
-config aspnet-repo-cached DepsRepoNamespace="Genesis.Data.Repositories"
+config aspnet-repo-cached DepsPath="/Users/toddmcmullen/output/Api/Foxen.Framework/"
+config aspnet-repo-cached DepsNamespace="Foxen.Framework"
+config aspnet-repo-cached DepsModelNamespace="Foxen.Data.Models"
+config aspnet-repo-cached DepsRepoNamespace="Foxen.Data.Repositories"
 config aspnet-repo-cached ObjectBaseClass="Model"
 config aspnet-repo-cached ModelBaseClass="Model"
 config aspnet-repo-cached GenericBaseClass=true
-config aspnet-repo-cached Namespace="Genesis.Data.Repositories"
+config aspnet-repo-cached Namespace="Foxen.Data.Repositories"
 
---add proto-file
-----Write out all of the .proto files for the API project. Tools on build will generate the base service classes
---config proto-file OutputPath="/src/genesis-mvp/src/Api/Genesis.Api/Protos/"
---config proto-file OutputSuffix=""
---config proto-file Namespace="Genesis.Api.GrpcServices"
---config proto-file GrpcNamespace="Genesis.Api.Proto"
---config proto-file Version=3
---
---add proto-svc
-----Build all of the GRPC service wrapper classes using the common namespace for the models
---config proto-svc OutputPath="/src/genesis-mvp/src/Api/Genesis.Api/GrpcServices/"
---config proto-svc GrpcNamespace="Genesis.Api.Proto"
---config proto-svc Namespace="Genesis.Api.GrpcServices"
---config proto-svc ServiceSuffix="GrpcService"
---config proto-svc DepsServiceNamespace="Genesis.Services"
---config proto-svc DepsDtoNamespace="Genesis.Common"
+add proto-file
+--Write out all of the .proto files for the API project. Tools on build will generate the base service classes
+config proto-file OutputPath="/Users/toddmcmullen/output/Api/Foxen.Api/Protos/"
+config proto-file OutputSuffix=""
+config proto-file Namespace="Foxen.Api.GrpcServices"
+config proto-file GrpcNamespace="Foxen.Api.Proto"
+config proto-file Version=3
+
+add proto-svc
+Build all of the GRPC service wrapper classes using the common namespace for the models
+config proto-svc OutputPath="/Users/toddmcmullen/output/Api/Foxen.Api/GrpcServices/"
+config proto-svc GrpcNamespace="Foxen.Api.Proto"
+config proto-svc Namespace="Foxen.Api.GrpcServices"
+config proto-svc ServiceSuffix="GrpcService"
+config proto-svc DepsServiceNamespace="Foxen.Services"
+config proto-svc DepsDtoNamespace="Foxen.Common"
 
 add aspnet-mvc-con
 --Write out the boilerplate controllers for their respective objects/dtos
-config aspnet-mvc-con OutputPath="/src/genesis-mvp/src/Api/Genesis.Api/Controllers/"
-config aspnet-mvc-con Namespace="Genesis.Api.Controllers"
+config aspnet-mvc-con OutputPath="/Users/toddmcmullen/output/Api/Foxen.Api/Controllers/"
+config aspnet-mvc-con Namespace="Foxen.Api.Controllers"
 config aspnet-mvc-con OutputSuffix="Controller"
-config aspnet-mvc-con DepsServiceNamespace="Genesis.Services"
-config aspnet-mvc-con DepsModelNamespace="Genesis.Data.Models"
-config aspnet-mvc-con DepsNamespace="Genesis.Framework"
-config aspnet-mvc-con DepsDtoNamespace="Genesis.Common"
+config aspnet-mvc-con DepsServiceNamespace="Foxen.Services"
+config aspnet-mvc-con DepsModelNamespace="Foxen.Data.Models"
+config aspnet-mvc-con DepsNamespace="Foxen.Framework"
+config aspnet-mvc-con DepsDtoNamespace="Foxen.Common"
 
 add js-dto
 --Write out the javascript DTOs to the React App
-config js-dto OutputPath="/src/genesis-mvp/src/Clients/Genesis.React/ClientApp/src/data/"
+config js-dto OutputPath="~/src/Users/toddmcmullen/output/Clients/Foxen.React/ClientApp/src/data/"
 config js-dto OutputSuffix="Dto"
 
 --	Execute the chain sequentially

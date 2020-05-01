@@ -21,9 +21,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\Debug.genesis" Link="Debug.genesis">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="..\LocalDBSqlToCSharp.genesis" Link="LocalDBSqlToCSharp.genesis">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -36,11 +33,14 @@
     <None Include="..\MSSqlToReactEditor.genesis" Link="MSSqlToReactEditor.genesis">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="..\MySqlToAll.genesis">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.CommandLineUtils" Version="1.1.1" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.CommandLine" Version="3.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.CommandLine" Version="3.1.3" />
     <PackageReference Include="System.Console" Version="4.3.1" />
   </ItemGroup>
 
@@ -68,4 +68,9 @@
     <ProjectReference Include="..\Executors\Input\Genesis.Input.MySqlDb\Genesis.Input.MySqlDb.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Debug.genesis">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 </Project>
